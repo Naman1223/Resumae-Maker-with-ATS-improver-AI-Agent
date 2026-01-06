@@ -1,0 +1,8 @@
+google-genai
+python-dotenv
+pypdf
+langchain-google-genai
+langchain-community
+langchain-openai
+langchain-ollama
+langchain
