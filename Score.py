@@ -43,11 +43,6 @@ console = Console()
 md = Markdown(response_ats.content)
 console.print(md)
 
-print("--- DEBUG INFO ---")
-print(f"PDF Text Length: {len(md_text)}")
-print(f"Job Description Length: {len(job_description)}")
-print(f"Response Content Length: {len(response_ats.content)}")
-
 ## Save the response to a markdown file
 output_file = "ats_feedback.md"
 with open(output_file, "w", encoding="utf-8") as f:
