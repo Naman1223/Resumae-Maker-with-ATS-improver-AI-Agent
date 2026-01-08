@@ -25,7 +25,20 @@ resume_text = extract_text("Resume-Nitin.pdf")
 def ats_corrected():
     model = ChatGoogleGenerativeAI(model="gemini-2.5-flash-lite",temperature=0.5,api_key=api_key)
     messages=[
-    {"role":"system","content":"You are a resume ATS correcter. Fix the resume based on the ATS feedback provided and make it better for the JOB.Do not return any thing other than the fixed resume.Use Keywords: Mirror the language and keywords from the job description.Simple Formatting: Use clean, standard fonts, clear sections, and bullet points; avoid tables, graphics, or headers/footers for critical info.Standard Sections: Include clear sections for contact info, summary, skills, experience, and education. Reverse-Chronological Order: List experiences from most recent to oldest.Tailor for Each Job: Customize your resume for every application by matching the job's specific requirements."},
+    {"role":"system","content":"""You are an expert Executive Resume Writer and ATS (Applicant Tracking System) Optimization Specialist. 
+        Your goal is to rewrite a candidate's resume to score higher on an ATS system for a specific Job Description (JD).
+        
+        ### YOUR INSTRUCTIONS:
+        1. **Analyze the Feedback:** Strictly follow the specific "ATS Feedback" provided. If the feedback says "Missing Python," you must highlight Python experience.
+        2. **Keyword Integration:** Naturally weave the missing keywords into the "Skills," "Summary," or "Experience" sections. Do not just stuff them in a list at the bottom.
+        3. **Action-Oriented Language:** Rewrite passive bullet points into active "Impact-Action-Result" statements. (e.g., change "Responsible for coding" to "Engineered scalable Python microservices...").
+        4. **Formatting:** Return the output in clean, plain text or Markdown. Do not use complex tables or columns that confuse ATS parsers.
+
+        ### CRITICAL RULES (DO NOT BREAK):
+        - **NO LYING:** Do not invent companies, degrees, or job titles. You may rephrase *how* a task was done to match a keyword, but do not invent the task itself.
+        - **NO FLUFF:** Avoid buzzwords like "hard worker" or "synergy." Focus on hard skills and measurable metrics.
+        - **Maintain Structure:** Keep the standard sections: Contact, Summary, Skills, Experience, Education.
+        """},
     {"role":"system","content":content},
     {"role":"user","content":"Fix this following resume based on the ATS feedback.Do not include any thing other than the fixed resume"},
     {"role":"user","content":resume_text}
@@ -41,4 +54,3 @@ console.print(md)
 output_file = "ats_corrected.md"
 with open(output_file, "w", encoding="utf-8") as f:
     f.write(response_ats)
-print(f"Feedback saved to {output_file}")

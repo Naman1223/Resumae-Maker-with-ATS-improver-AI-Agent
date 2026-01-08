@@ -1,64 +1,98 @@
 # **NITIN**
 
-nitint295@gmail.com | +91-8381825734 | linkedin.com/in/yourprofile | github.com/yourprofile (Optional)
+Nitint295@gmail.com
++91-8381825734
 
----
 
-## Professional Summary
+**OBJECTIVE**
 
-Highly analytical and impact-driven Product Manager with 1.5 years of direct experience leading end-to-end product development in network orchestration, complemented by 3+ years in business analysis and automation. Proven ability to leverage data insights (SQL, Google Analytics) and user research to define product strategy, drive cross-functional teams, and deliver solutions that enhance user experience and achieve business growth. Spearheaded the development of a Network Orchestration tool that improved network uptime by 15% and reduced operational costs by 10%. Eager to contribute to Google's mission of organizing the world's information.
 
----
+Highly motivated Product Manager with experience in analytics-driven product development, leveraging data insights to enhance user
+experience and drive business growth. Skilled in developing reporting tools, optimizing workflows, and delivering impactful solutions
+aligned with strategic goals. Eager to contribute to a dynamic team and make impactful contributions in a challenging environment.
 
-## Skills
+**FUNCTIONAL AREA**
 
-*   **Product Management:** Product Strategy & Road Mapping, Product Lifecycle Management, Go-to-Market (GTM) Planning, Requirements Gathering, User-Centered Design, PRD Documentation, Agile & Scrum Execution, KPI Tracking, A/B Testing, Wireframing, Stakeholder Management, User Research, Market Research, Competitive Analysis, Customer Journey Mapping, Funnel Analysis.
-*   **Analytics & BI Tools:** SQL, Tableau, Power BI, Mixpanel, Google Analytics.
-*   **Programming & Databases:** Java, C#, Statistics, Data Modeling.
-*   **Project Management Tools:** Jira, Azure DevOps (ADO), MS Office Suite, Notion, Whimsical, Figma.
-*   **Networking Technologies:** SDN, SD-WAN, Network Monitoring, Network Orchestration.
-*   **Automation:** Robotic Process Automation (RPA), UiPath.
 
----
 
-## Experience
+●​ Product Lifecycle Management
+●​ Stakeholder Management
+●​ User-Centered Design
 
-**Associate Product Manager / Junior Product Manager** | May 2023 – Oct 2024
 
-*   Spearheaded the end-to-end product lifecycle for a Network Orchestration and Monitoring tool (SD-WAN/SDN), driving a **15% improvement in network uptime** and **reducing operational costs by 10%** for enterprise clients.
-*   Defined product vision and roadmap for the Network Orchestration tool, aligning with company's long-term goal of expanding into enterprise solutions and enhancing platform scalability.
-*   Streamlined requirement gathering, design, and testing processes, **reducing time-to-market by 20%** for key features and **improving product quality by X%** through rigorous testing.
-*   Contributed to the development of a Process Orchestrator tool, enhancing OSS/BSS suite management through Conductor Workflow, Form Builder, Integration, and Scheduler capabilities, resulting in a **25% increase in process efficiency**.
-*   Integrated Access Control List (ACL) and Copilot functionalities, **improving system security by 15%** and **automating X routine tasks**.
-*   Analyzed diverse stakeholder requirements to design and implement optimal solutions, **increasing user adoption by 10%** and achieving the business objective of expanding market share in the telecom sector.
-*   Utilized Mixpanel analytics to optimize the user onboarding flow for the Process Orchestrator, resulting in a **12% increase in user activation**.
-*   Collaborated effectively with Engineering, UX, and QA teams to drive feature implementation, **accelerating delivery by 15%** and **improving feature adoption by 8%**.
-*   Managed defect tracking and facilitated User Acceptance Testing (UAT) for client applications, ensuring **98% client satisfaction** on delivered features.
-*   Conducted review meetings and ensured smooth product rollouts, contributing to **X new client acquisitions**.
+**TECHNICAL SKILLS**
 
-**Freelancing / RPA Developer / Business Analyst** | June 2021 – Dec 2022
 
-*   Managed and developed detailed user stories and acceptance criteria for client projects, **ensuring 95% alignment** between user needs and development outcomes.
-*   Analyzed complex client requirements to identify opportunities for automation and process improvement, leading to the development of **X new RPA solutions**.
-*   Arranged and managed test environments to execute test cases, **reducing testing cycle time by 20%**.
-*   Conducted review meetings with clients and development teams to ensure project clarity and alignment.
-*   Executed comprehensive test cases and managed defect tracking using Jira, **improving overall product quality by 10%**.
-*   Communicated effectively with Test Managers and stakeholders to provide project status updates and resolve issues.
-*   Facilitated User Acceptance Testing (UAT), ensuring successful deployment and client sign-off.
 
-**Airodigital Labs Pvt. Ltd. / Analyst** | Feb 2020 – June 2021 | Gurgaon
+●​ Product Strategy & Road Mapping
+●​ Go-to-Market (GTM) Planning
+●​ Agile & Scrum Execution
 
-*   Analyzed complex system workflows to identify inefficiencies, proposing and developing cost-effective automation solutions using UiPath that **reduced manual processing time by 30%** and **improved data accuracy by 15%** for client operations.
-*   Developed and tested automated RPA programs based on solution plans, ensuring reliability and cost-effectiveness for client deployments.
-*   Performed manual testing on 4 critical applications, identifying and documenting bugs to enhance software quality.
-*   Supported senior colleagues by identifying bugs and suggesting actionable improvements, contributing to a **10% reduction in post-deployment defects**.
 
----
 
-## Education
+●​ **Product Management**   - Product Development, Product Strategy, Roadmap Planning, Stakeholder Management, Requirements
+Gathering, UI/UX, PRD Documentation, Agile SDLC, KPI tracking, A/B Testing, Wireframing.
+●​ **Analytics & BI Tools**   - SQL, Tableau, Power BI, Mixpanel, Google Analytics, AI
+●​ **Programming & Databases**   - jAVA, C# Statistics, Data Modelling.
+●​ **Product Research**   - Market Research, Competitive Analysis, Customer Journey Mapping, User Research, Funnel Analysis.
+●​ **Project Management** –ADO, Scrum, JIRA, Sprint Planning, MS Office Suite, Notion, Whimsical. Figma
+●​ **Networking**   - SDN, SDWAN, Network Monitoring and Orchestration
 
-**B. Tech. (Computer Science & Engineering)** | SHUATS, Prayagraj | 2015 – 2019
+**ACADEMICS**
+### ●​ B. Tech. (Computer Science & Engineering) | S.H.U.A.T.S., Prayagraj | Year: 2015-2019 | ●​ Intermediate | Jyoti Niketan School, Azamgarh | ISC Board | Year: 2014-2015 |  Percentage: 60% ●​ High School | Jyoti Niketan School,Azamgarh | ICSE Board | Year: 2012-2013 | Percentage: 73%
 
-**Intermediate** | Jyoti Niketan School, Azamgarh | ISC Board | 2014 – 2015 | 60%
 
-**High School** | Jyoti Niketan School, Azamgarh | ICSE Board | 2012 – 2013 | 73%
+**WORK EXPERIENCE**
+### **Airodigital Labs Pvt. Ltd. /Analyst**
+
+Feb 2020 - June 2021, Gurgaon
+**Airo Digital Labs Pvt. Ltd. is a US Based company provides numerous services to their clients.**
+
+●​ **Analyzing the flow chart** and building the reliable and cost effective solution.
+●​ **Developing** an automated program based on the solution plan with the help of UiPath.
+●​ **Testing** of the same software for the client environment.
+●​ **Individual Responsibility was to develop Automation tools** with the help of RPA Tools and to **Test it through for**
+**production.**
+●​ **Supported senior colleagues by identifying bugs and suggesting improvements**
+●​ **Performed manual testing on 4 applications**
+
+### **Freelancing /RPA Developer / Business Analyst**
+
+
+June 2021 - Dec 2022
+
+●​ **Managing and developing User stories** for the development requirement.
+●​ Analyzing the requirements from clients
+●​ **Arranging Test Environment** to execute the test cases
+●​ Conducting Review Meetings
+●​ Analyzing and executing **Test Cases**
+**●​** **Defect Tracking**
+●​ Communicating with **Test Manager**
+**●​** **UAT Testing.**
+
+
+### **Associate Product Manager / Junior Product Manager**
+
+May 2023 - Oct 2024
+
+●​ Led the end-to-end development of a **Network Orchestration and Monitoring tool** featuring SD-WAN and SDN
+
+capabilities.
+●​ Managed **requirement gathering, designing,** and **overall testing** phases for the product.
+●​ Contributed to the development of a **Process Orchestrator tool** with capabilities like **Conductor Workflow, Form**
+
+**Builder, Integration and Scheduler** to manage OSS and BSS suites.
+●​ Integrated **Access Control List (ACL)** and **Copilot** functionalities to enhance system security and automation.
+●​ Analyzed stakeholders' requirements to design and implement optimal solutions, ensuring alignment with
+
+business objectives.
+●​ Managed defect tracking and facilitated UAT testing for client applications.
+●​ Conducted review meetings and ensured smooth product rollouts.
+●​ Collaborated with cross-functional teams to drive feature implementation and improvements.
+
+**DECLARATION**
+I hereby declare that all the data furnished above are true as per the best of my knowledge.
+
+## Nitin
+
+
