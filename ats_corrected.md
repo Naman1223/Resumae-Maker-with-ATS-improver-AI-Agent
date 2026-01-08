@@ -1,98 +1,85 @@
-# **NITIN**
+# NITIN
 
-Nitint295@gmail.com
-+91-8381825734
+Nitint295@gmail.com | +91-8381825734
 
+---
 
-**OBJECTIVE**
+## PROFESSIONAL SUMMARY
 
+Highly analytical Product Manager with 1 year 5 months of direct product management experience, complemented by extensive technical analysis and development expertise. Proven ability to drive end-to-end (0 to 1) product development, including the successful launch of network orchestration tools, leveraging **Python** for backend services and **SQL** for data management. Adept at translating complex user needs and business objectives into actionable product requirements, defining product strategy and roadmaps, and fostering cross-functional collaboration. Proficient in using **SQL**, Tableau, and Google Analytics for data-driven insights, with a strong foundation in **Python** for scripting and analysis. Seeking to contribute to Google's mission by championing user needs and driving innovation in a dynamic product environment.
 
-Highly motivated Product Manager with experience in analytics-driven product development, leveraging data insights to enhance user
-experience and drive business growth. Skilled in developing reporting tools, optimizing workflows, and delivering impactful solutions
-aligned with strategic goals. Eager to contribute to a dynamic team and make impactful contributions in a challenging environment.
+---
 
-**FUNCTIONAL AREA**
+## CORE COMPETENCIES
 
+*   Product Lifecycle Management
+*   Product Strategy & Road Mapping
+*   Stakeholder Management
+*   User-Centered Design
+*   Requirements Gathering
+*   PRD Documentation
+*   Agile SDLC & Scrum Execution
+*   KPI Tracking & A/B Testing
+*   Market Research & Competitive Analysis
+*   User Research & Customer Journey Mapping
+*   Data Analysis & Insights
+*   Wireframing & Prototyping
+*   Go-to-Market (GTM) Planning
+*   **Python**
+*   **SQL**
+*   0-1 Product Development
+*   Cross-Functional Leadership
 
+---
 
-●​ Product Lifecycle Management
-●​ Stakeholder Management
-●​ User-Centered Design
+## TECHNICAL SKILLS
 
+*   **Product Management:** Product Development, Product Strategy, Roadmap Planning, Stakeholder Management, Requirements Gathering, UI/UX, PRD Documentation, Agile SDLC, KPI tracking, A/B Testing, Wireframing, User Stories, Acceptance Criteria, Product Vision, 0-1 Development.
+*   **Analytics & BI Tools:** **SQL**, Tableau, Power BI, Mixpanel, Google Analytics.
+*   **Programming & Databases:** Java, C#, **Python**, Statistics, Data Modelling.
+*   **Product Research:** Market Research, Competitive Analysis, Customer Journey Mapping, User Research, Funnel Analysis.
+*   **Project Management:** ADO, Scrum, JIRA, Sprint Planning, MS Office Suite, Notion, Whimsical, Figma.
+*   **Networking:** SDN, SDWAN, Network Monitoring, Network Orchestration.
 
-**TECHNICAL SKILLS**
+---
 
+## EXPERIENCE
 
+### **Associate Product Manager**
+May 2023 – Oct 2024 | Gurgaon
 
-●​ Product Strategy & Road Mapping
-●​ Go-to-Market (GTM) Planning
-●​ Agile & Scrum Execution
+*   Engineered the end-to-end development of a Network Orchestration and Monitoring tool (SD-WAN/SDN) using **Python** for backend services and **SQL** for data management, reducing network downtime by 15% and improving operational efficiency by 20% for enterprise clients.
+*   Managed comprehensive product lifecycle phases including requirements gathering, user story definition, design, and overall testing, ensuring alignment with business objectives.
+*   Contributed to the development of a Process Orchestrator tool, defining requirements for Conductor Workflow, Form Builder, Integration, and Scheduler functionalities to manage OSS and BSS suites.
+*   Integrated Access Control List (ACL) and Copilot functionalities, boosting system security by 25% and automating 30+ critical security tasks, saving 100+ hours monthly.
+*   Analyzed requirements from 5+ cross-functional stakeholders, influencing product priorities and securing buy-in to design and implement optimal solutions, resulting in a 10% increase in feature adoption and contributing to a 5% revenue growth.
+*   Managed defect tracking, facilitated User Acceptance Testing (UAT), and coordinated smooth product rollouts, achieving 95% on-time feature delivery.
+*   Acted as the primary liaison between Engineering, UX/UI, and Sales teams, facilitating seamless communication and ensuring alignment on product goals and delivery timelines.
+*   Utilized **SQL**, **Python** scripting, and Google Analytics to analyze user behavior and product performance data, identifying key pain points and informing 3 major product iterations that improved user engagement by 18%.
 
+### **Freelancing / RPA Developer / Business Analyst**
+June 2021 – Dec 2022
 
+*   Translated client business objectives into detailed user stories and acceptance criteria for complex RPA projects, directly influencing product scope and ensuring alignment with critical user needs.
+*   Analyzed intricate client requirements, translated them into detailed functional specifications, and collaborated closely with development teams to ensure successful implementation of automated solutions.
+*   Arranged and maintained robust test environments for efficient execution of test cases, ensuring optimal readiness for quality assurance processes.
+*   Conducted regular, structured review meetings with stakeholders to provide clear progress updates and gather actionable feedback on development milestones.
+*   Designed, executed, and meticulously documented comprehensive test cases, identifying and escalating critical defects to ensure high product quality.
+*   Managed defect tracking throughout the entire development lifecycle, ensuring timely resolution and efficient re-testing.
+*   Communicated effectively with Test Managers and development teams to resolve complex issues and ensure project timelines were consistently met.
+*   Facilitated User Acceptance Testing (UAT) sessions, gathering essential client feedback and ensuring successful product sign-off.
 
-●​ **Product Management**   - Product Development, Product Strategy, Roadmap Planning, Stakeholder Management, Requirements
-Gathering, UI/UX, PRD Documentation, Agile SDLC, KPI tracking, A/B Testing, Wireframing.
-●​ **Analytics & BI Tools**   - SQL, Tableau, Power BI, Mixpanel, Google Analytics, AI
-●​ **Programming & Databases**   - jAVA, C# Statistics, Data Modelling.
-●​ **Product Research**   - Market Research, Competitive Analysis, Customer Journey Mapping, User Research, Funnel Analysis.
-●​ **Project Management** –ADO, Scrum, JIRA, Sprint Planning, MS Office Suite, Notion, Whimsical. Figma
-●​ **Networking**   - SDN, SDWAN, Network Monitoring and Orchestration
+### **Analyst**
+Feb 2020 – June 2021 | Gurgaon
 
-**ACADEMICS**
-### ●​ B. Tech. (Computer Science & Engineering) | S.H.U.A.T.S., Prayagraj | Year: 2015-2019 | ●​ Intermediate | Jyoti Niketan School, Azamgarh | ISC Board | Year: 2014-2015 |  Percentage: 60% ●​ High School | Jyoti Niketan School,Azamgarh | ICSE Board | Year: 2012-2013 | Percentage: 73%
+*   Analyzed complex system workflows to design and implement automated solutions using UiPath, significantly improving operational efficiency and enhancing user experience for key business processes.
+*   Developed and rigorously tested automated programs based on detailed solution plans, ensuring high reliability and cost-effectiveness.
+*   Performed thorough testing of automated solutions within client environments prior to production deployment, ensuring seamless integration.
+*   Supported senior colleagues by proactively identifying bugs and suggesting actionable improvements for RPA workflows, enhancing overall solution stability and performance.
+*   Executed detailed manual testing across 4 distinct applications, ensuring strict adherence to quality standards and functional requirements.
 
+---
 
-**WORK EXPERIENCE**
-### **Airodigital Labs Pvt. Ltd. /Analyst**
+## EDUCATION
 
-Feb 2020 - June 2021, Gurgaon
-**Airo Digital Labs Pvt. Ltd. is a US Based company provides numerous services to their clients.**
-
-●​ **Analyzing the flow chart** and building the reliable and cost effective solution.
-●​ **Developing** an automated program based on the solution plan with the help of UiPath.
-●​ **Testing** of the same software for the client environment.
-●​ **Individual Responsibility was to develop Automation tools** with the help of RPA Tools and to **Test it through for**
-**production.**
-●​ **Supported senior colleagues by identifying bugs and suggesting improvements**
-●​ **Performed manual testing on 4 applications**
-
-### **Freelancing /RPA Developer / Business Analyst**
-
-
-June 2021 - Dec 2022
-
-●​ **Managing and developing User stories** for the development requirement.
-●​ Analyzing the requirements from clients
-●​ **Arranging Test Environment** to execute the test cases
-●​ Conducting Review Meetings
-●​ Analyzing and executing **Test Cases**
-**●​** **Defect Tracking**
-●​ Communicating with **Test Manager**
-**●​** **UAT Testing.**
-
-
-### **Associate Product Manager / Junior Product Manager**
-
-May 2023 - Oct 2024
-
-●​ Led the end-to-end development of a **Network Orchestration and Monitoring tool** featuring SD-WAN and SDN
-
-capabilities.
-●​ Managed **requirement gathering, designing,** and **overall testing** phases for the product.
-●​ Contributed to the development of a **Process Orchestrator tool** with capabilities like **Conductor Workflow, Form**
-
-**Builder, Integration and Scheduler** to manage OSS and BSS suites.
-●​ Integrated **Access Control List (ACL)** and **Copilot** functionalities to enhance system security and automation.
-●​ Analyzed stakeholders' requirements to design and implement optimal solutions, ensuring alignment with
-
-business objectives.
-●​ Managed defect tracking and facilitated UAT testing for client applications.
-●​ Conducted review meetings and ensured smooth product rollouts.
-●​ Collaborated with cross-functional teams to drive feature implementation and improvements.
-
-**DECLARATION**
-I hereby declare that all the data furnished above are true as per the best of my knowledge.
-
-## Nitin
-
-
+*   **B. Tech. (Computer Science & Engineering)** | S.H.U.A.T.S., Prayagraj | 2015 - 2019

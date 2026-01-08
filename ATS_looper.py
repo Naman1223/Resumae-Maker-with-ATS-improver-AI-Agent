@@ -8,8 +8,6 @@ from rich.markdown import Markdown
 import subprocess
 import sys
 import pymupdf4llm
-from Score import job_description
-from Correction import ats_corrected
 import time
 load_dotenv()
 
@@ -32,24 +30,20 @@ job_description = job_description()
 output_file_job = "job_description.md"
 with open(output_file_job, "w", encoding="utf-8") as f:
     f.write(job_description)
-score = 0
-while score < 50:
-    def extract_numbers_from_file(file_path):
-        with open(file_path, 'r') as file:
-            content = file.read()
-            return content
-    score =extract_numbers_from_file("ats_score.txt")
-    Score1 = subprocess.run(
-    [sys.executable, "Score.py"], 
-    capture_output=True, 
-    text=True
-    )
-    Score_output = Score1.stdout
-    time.sleep(5)
+Score = subprocess.run(
+[sys.executable, "Score.py"], 
+capture_output=True, 
+text=True
+)
 
-    result = subprocess.run(
-    [sys.executable, "Correction.py"], 
-    capture_output=True, 
-    text=True
-    )
-    output = result.stdout
+Score_output = Score.stdout
+
+time.sleep(5)
+
+result = subprocess.run(
+[sys.executable, "Correction.py"], 
+capture_output=True, 
+text=True
+)
+
+output = result.stdout
