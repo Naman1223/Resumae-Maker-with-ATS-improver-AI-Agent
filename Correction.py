@@ -23,12 +23,17 @@ resume_text = extract_text("Resume-Nitin.pdf")
 
 model = ChatGoogleGenerativeAI(model="gemini-2.5-flash-lite",temperature=0,api_key=api_key)
 messages=[
-    {"role":"system","content":"You are a resume ATS correcter. Fix the resume based on the ATS feedback and make it better for the JOB."},
+    {"role":"system","content":"You are a resume ATS correcter. Fix the resume based on the ATS feedback provided and make it better for the JOB.Do not include any thing other than the resume"},
     {"role":"system","content":content},
-    {"role":"user","content":"Fix the following resume based on the ATS feedback and make it better for the JOB."},
+    {"role":"user","content":"Fix this following resume based on the ATS feedback.Do not include any thing other than the resume"},
     {"role":"user","content":resume_text}
 ]
 response_ats=model.invoke(messages)
 console = Console()
 md = Markdown(response_ats.content)
 console.print(md)
+
+output_file = "ats_corrected.md"
+with open(output_file, "w", encoding="utf-8") as f:
+    f.write(response_ats.content)
+print(f"Feedback saved to {output_file}")
