@@ -18,7 +18,6 @@ api_key = os.getenv("GEMINI_API_KEY")
 model= ChatGoogleGenerativeAI(model="gemini-2.5-flash",temperature=0,api_key=api_key)
 
 
-
 ## This part takes the JOB description as user input and comparest it with the Resume and gives the score based on a scale of 1 to 100
 
 def read_md_file_plain(file_path):
@@ -26,21 +25,20 @@ def read_md_file_plain(file_path):
         return f.read()
 job_description = read_md_file_plain("job_description.md")
 md_text = read_md_file_plain("ats_corrected.md")
+prompt = read_md_file_plain("prompt_sys.md")
+prompt_feedback = read_md_file_plain("prompt_feedback.md")
 
 messages=[
-    {"role":"system","content":"You are a ATS scorer. Score the resume based on the job description and give the score based on a scale of 1 to 100 and return only the score in form int format." + job_description},
+    {"role":"system","content":prompt + job_description},
     {"role":"user","content":md_text}
 ]
 response_score=model.invoke(messages)
 
 messages1=[
-    {"role":"system","content":"You are a resume ATS scorer. Score the resume based on the job description and give the score based on a scale of 1 to 100 also give a seprate detailed section on how to fix the ATS score to make it better for the JOB." + job_description},
+    {"role":"system","content":"Give a feedback based on the job descreption so that the resume can be improved to score more than 90 on ATS promot metrics which i have provided"+prompt_feedback + job_description},
     {"role":"user","content":md_text}
 ]
 response_ats=model.invoke(messages1)
-console = Console()
-md = Markdown(response_ats.content)
-console.print(md)
 
 ## Save the response to a markdown file
 output_file_ats = "ats_feedback.md"

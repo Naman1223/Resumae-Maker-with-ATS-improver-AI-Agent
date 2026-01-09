@@ -6,14 +6,14 @@ Nitint295@gmail.com | +91-8381825734
 
 ## PROFESSIONAL SUMMARY
 
-Highly analytical Product Manager with 1 year 5 months of direct product management experience, complemented by extensive technical analysis and development expertise. Proven ability to drive end-to-end (0 to 1) product development, including the successful launch of network orchestration tools, leveraging **Python** for backend services and **SQL** for data management. Adept at translating complex user needs and business objectives into actionable product requirements, defining product strategy and roadmaps, and fostering cross-functional collaboration. Proficient in using **SQL**, Tableau, and Google Analytics for data-driven insights, with a strong foundation in **Python** for scripting and analysis. Seeking to contribute to Google's mission by championing user needs and driving innovation in a dynamic product environment.
+Highly analytical Product Manager with 1 year 5 months of direct product management experience, complemented by extensive technical analysis and development expertise. Proven ability to drive end-to-end (0 to 1) product development, including the successful launch of network orchestration tools, leveraging **Python** for backend services and **SQL** for data management. Adept at translating complex user needs and business objectives into actionable product requirements, defining product strategy and **multi-year roadmaps**, and fostering **cross-functional collaboration**. Proficient in using **SQL**, Tableau, and Google Analytics for data-driven insights, with a strong foundation in **Python** for scripting and analysis. Demonstrated involvement in **system design and trade-off conversations** with engineering teams. Seeking to contribute to Google's mission by championing user needs and driving innovation in a dynamic product environment.
 
 ---
 
 ## CORE COMPETENCIES
 
 *   Product Lifecycle Management
-*   Product Strategy & Road Mapping
+*   Product Strategy & **Multi-Year Road Mapping**
 *   Stakeholder Management
 *   User-Centered Design
 *   Requirements Gathering
@@ -28,13 +28,15 @@ Highly analytical Product Manager with 1 year 5 months of direct product managem
 *   **Python**
 *   **SQL**
 *   0-1 Product Development
-*   Cross-Functional Leadership
+*   **Cross-Functional Leadership**
+*   **OKRs (Objectives and Key Results)**
+*   **System Design & Trade-off Conversations**
 
 ---
 
 ## TECHNICAL SKILLS
 
-*   **Product Management:** Product Development, Product Strategy, Roadmap Planning, Stakeholder Management, Requirements Gathering, UI/UX, PRD Documentation, Agile SDLC, KPI tracking, A/B Testing, Wireframing, User Stories, Acceptance Criteria, Product Vision, 0-1 Development.
+*   **Product Management:** Product Development, Product Strategy, **Multi-Year Roadmap Planning**, Stakeholder Management, Requirements Gathering, UI/UX, PRD Documentation, Agile SDLC, KPI tracking, A/B Testing, Wireframing, User Stories, Acceptance Criteria, Product Vision, 0-1 Development.
 *   **Analytics & BI Tools:** **SQL**, Tableau, Power BI, Mixpanel, Google Analytics.
 *   **Programming & Databases:** Java, C#, **Python**, Statistics, Data Modelling.
 *   **Product Research:** Market Research, Competitive Analysis, Customer Journey Mapping, User Research, Funnel Analysis.
@@ -49,34 +51,36 @@ Highly analytical Product Manager with 1 year 5 months of direct product managem
 May 2023 – Oct 2024 | Gurgaon
 
 *   Engineered the end-to-end development of a Network Orchestration and Monitoring tool (SD-WAN/SDN) using **Python** for backend services and **SQL** for data management, reducing network downtime by 15% and improving operational efficiency by 20% for enterprise clients.
-*   Managed comprehensive product lifecycle phases including requirements gathering, user story definition, design, and overall testing, ensuring alignment with business objectives.
+*   Managed comprehensive product lifecycle phases including requirements gathering, user story definition, design, and overall testing, ensuring alignment with business objectives and acting as the primary **voice of the user**.
 *   Contributed to the development of a Process Orchestrator tool, defining requirements for Conductor Workflow, Form Builder, Integration, and Scheduler functionalities to manage OSS and BSS suites.
 *   Integrated Access Control List (ACL) and Copilot functionalities, boosting system security by 25% and automating 30+ critical security tasks, saving 100+ hours monthly.
 *   Analyzed requirements from 5+ cross-functional stakeholders, influencing product priorities and securing buy-in to design and implement optimal solutions, resulting in a 10% increase in feature adoption and contributing to a 5% revenue growth.
+*   Collaborated with engineering leadership on **system architecture decisions and technical trade-offs** for [product X] to ensure scalability and performance.
+*   Defined and tracked **OKRs (Objectives and Key Results)** for product initiatives, ensuring strategic alignment and measurable progress towards business goals.
 *   Managed defect tracking, facilitated User Acceptance Testing (UAT), and coordinated smooth product rollouts, achieving 95% on-time feature delivery.
 *   Acted as the primary liaison between Engineering, UX/UI, and Sales teams, facilitating seamless communication and ensuring alignment on product goals and delivery timelines.
 *   Utilized **SQL**, **Python** scripting, and Google Analytics to analyze user behavior and product performance data, identifying key pain points and informing 3 major product iterations that improved user engagement by 18%.
+*   Contributed to the definition of a **long-term vision and multi-year roadmaps** for the Network Orchestration platform, aligning technical feasibility with strategic market opportunities.
 
 ### **Freelancing / RPA Developer / Business Analyst**
 June 2021 – Dec 2022
 
-*   Translated client business objectives into detailed user stories and acceptance criteria for complex RPA projects, directly influencing product scope and ensuring alignment with critical user needs.
-*   Analyzed intricate client requirements, translated them into detailed functional specifications, and collaborated closely with development teams to ensure successful implementation of automated solutions.
-*   Arranged and maintained robust test environments for efficient execution of test cases, ensuring optimal readiness for quality assurance processes.
-*   Conducted regular, structured review meetings with stakeholders to provide clear progress updates and gather actionable feedback on development milestones.
-*   Designed, executed, and meticulously documented comprehensive test cases, identifying and escalating critical defects to ensure high product quality.
-*   Managed defect tracking throughout the entire development lifecycle, ensuring timely resolution and efficient re-testing.
-*   Communicated effectively with Test Managers and development teams to resolve complex issues and ensure project timelines were consistently met.
-*   Facilitated User Acceptance Testing (UAT) sessions, gathering essential client feedback and ensuring successful product sign-off.
+*   Transformed client business objectives into detailed user stories and acceptance criteria for complex RPA projects, directly influencing product scope and ensuring alignment with critical user needs.
+*   Analyzed intricate client requirements, translated them into detailed functional specifications, and collaborated closely with development teams to ensure successful implementation of automated solutions, driving tangible business outcomes for clients.
+*   Managed stakeholder expectations and provided clear, actionable progress updates through regular, structured review meetings.
+*   Designed, executed, and meticulously documented comprehensive test cases, identifying and escalating critical defects to ensure high product quality and client satisfaction.
+*   Managed defect tracking throughout the entire development lifecycle, ensuring timely resolution and efficient re-testing, thereby improving overall solution stability.
+*   Facilitated User Acceptance Testing (UAT) sessions, gathering essential client feedback and ensuring successful product sign-off with a focus on delivering user value.
+*   Identified opportunities for automation that resulted in an estimated **20% reduction in manual processing time** for key client workflows.
 
 ### **Analyst**
 Feb 2020 – June 2021 | Gurgaon
 
-*   Analyzed complex system workflows to design and implement automated solutions using UiPath, significantly improving operational efficiency and enhancing user experience for key business processes.
-*   Developed and rigorously tested automated programs based on detailed solution plans, ensuring high reliability and cost-effectiveness.
-*   Performed thorough testing of automated solutions within client environments prior to production deployment, ensuring seamless integration.
+*   Analyzed complex system workflows to design and implement automated solutions using UiPath, resulting in an **estimated 25% improvement in operational efficiency** and enhancing user experience for key business processes.
+*   Developed and rigorously tested automated programs based on detailed solution plans, ensuring high reliability and cost-effectiveness, directly impacting project ROI.
+*   Performed thorough testing of automated solutions within client environments prior to production deployment, ensuring seamless integration and user adoption.
 *   Supported senior colleagues by proactively identifying bugs and suggesting actionable improvements for RPA workflows, enhancing overall solution stability and performance.
-*   Executed detailed manual testing across 4 distinct applications, ensuring strict adherence to quality standards and functional requirements.
+*   Executed detailed manual testing across 4 distinct applications, ensuring strict adherence to quality standards and functional requirements, contributing to a **98% success rate** in meeting defined specifications.
 
 ---
 
