@@ -20,4 +20,4 @@ Step 4: Calculate the final score.
 - Provide a "Gap Analysis" explaining exactly why the score isn't a 100.
 
 ### OUTPUT
-- Return only the score in form int format.
+- Return only the score in form integer format make sure not to return any other text.

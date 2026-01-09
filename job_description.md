@@ -11,4 +11,8 @@ Experience:
 Mid-Level: Typically requires 5+ years of product management experience and 2+ years of taking technical products from 0 to 1.
 Senior-Level: Often requires 8+ years of experience in PM or as a co-founder.
 Technical Chops: While not an engineering role, Google PMs are expected to have strong technical abilities to participate in system design and trade-off conversations.
-Interpersonal Skills: Exceptional communication, organizational, and leadership skills are mandatory to influence teams without formal authority.
+Interpersonal Skills: Exceptional communication, organizational, and leadership skills are mandatory to influence teams without formal authority. 
+Compensation (US Estimates)
+Base Salary Range: Generally ranges from $132,000 to $271,000 depending on the specific role and level (e.g., PM I vs. Senior PM).
+Total Package: Usually includes base salary, annual bonus, and equity (GSUs). 
+You can explore current openings and specific requirements for different teams on the Google Careers Portal. 

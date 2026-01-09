@@ -26,7 +26,6 @@ def read_md_file_plain(file_path):
 job_description = read_md_file_plain("job_description.md")
 md_text = read_md_file_plain("ats_corrected.md")
 prompt = read_md_file_plain("prompt_sys.md")
-prompt_feedback = read_md_file_plain("prompt_feedback.md")
 
 messages=[
     {"role":"system","content":prompt + job_description},
@@ -35,7 +34,7 @@ messages=[
 response_score=model.invoke(messages)
 
 messages1=[
-    {"role":"system","content":"Give a feedback based on the job descreption so that the resume can be improved to score more than 90 on ATS promot metrics which i have provided"+prompt_feedback + job_description},
+    {"role":"system","content":"Give a feedback based on the job descreption so that the resume can be improved to score more than 90 also make sure that the resume is ATS optimized,readable and structured,make sure to include the job title in the resume"+ job_description},
     {"role":"user","content":md_text}
 ]
 response_ats=model.invoke(messages1)

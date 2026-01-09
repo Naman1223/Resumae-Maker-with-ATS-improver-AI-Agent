@@ -30,20 +30,14 @@ job_description = job_description()
 output_file_job = "job_description.md"
 with open(output_file_job, "w", encoding="utf-8") as f:
     f.write(job_description)
-Score = subprocess.run(
-[sys.executable, "Score.py"], 
-capture_output=True, 
-text=True
-)
+counter = 0
 
-Score_output = Score.stdout
+while counter < 5:
+    Score = subprocess.run([sys.executable, "Score.py"], capture_output=True, text=True)
+    Score_output = Score.stdout
+    result = subprocess.run([sys.executable, "Correction.py"], capture_output=True, text=True)
+    output = result.stdout
+    counter += 1
 
-time.sleep(5)
-
-result = subprocess.run(
-[sys.executable, "Correction.py"], 
-capture_output=True, 
-text=True
-)
-
-output = result.stdout
+md_to_pdf_output = subprocess.run([sys.executable, "md_to_pdf.py"], capture_output=True, text=True)
+md_to_pdf_output = md_to_pdf_output.stdout

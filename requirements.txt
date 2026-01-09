@@ -7,4 +7,3 @@ langchain-openai
 langchain-ollama
 langchain
 pymupdf
-markdown-pdf

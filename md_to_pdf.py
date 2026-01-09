@@ -1,6 +1,6 @@
 from markdown_pdf import MarkdownPdf, Section
 
-pdf = MarkdownPdf(toc_level=2)
+pdf = MarkdownPdf(toc_level=1)
 # Load your markdown file content
 with open("ats_corrected.md", "r", encoding="utf-8") as f:
     md_content = f.read()
