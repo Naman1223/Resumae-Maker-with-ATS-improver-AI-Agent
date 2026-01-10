@@ -34,7 +34,7 @@ messages=[
 response_score=model.invoke(messages)
 
 messages1=[
-    {"role":"system","content":"Give a feedback based on the job descreption so that the resume can be improved to score more than 90 also make sure that the resume is ATS optimized,readable and structured,make sure to include the job title in the resume"+ job_description},
+    {"role":"system","content":"Give a feedback based on the job descreption so that the resume can be improved to score more than 90 also make sure that the resume is ATS optimized,readable and structured,make sure to include the job title in the resume.Know about the candidate so you do not miss any important details like Education,Experience,Skills,Projects,etc."+ job_description},
     {"role":"user","content":md_text}
 ]
 response_ats=model.invoke(messages1)
