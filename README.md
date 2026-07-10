@@ -3,8 +3,7 @@ title: ATS Fixer - Resume Optimizer
 emoji: 📄
 colorFrom: blue
 colorTo: purple
-sdk: streamlit
-sdk_version: "1.45.1"
+sdk: docker
 app_file: app.py
 pinned: false
 license: mit
