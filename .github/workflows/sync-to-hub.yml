@@ -9,14 +9,10 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          lfs: true
-
-      - name: Push to Hub
+      - name: Clone and Push
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git push --force https://Namantiwariix:$HF_TOKEN@huggingface.co/spaces/Namantiwariix/ATSFixer main
+          git clone --depth 1 https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git repo
+          cd repo
+          git push --force https://Namantiwariix:$HF_TOKEN@huggingface.co/spaces/Namantiwariix/ATSFixer main:main
