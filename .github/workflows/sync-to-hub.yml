@@ -18,6 +18,7 @@ jobs:
           
           # Copy only necessary text/code files to deploy_dir
           cp source_repo/app.py deploy_dir/
+          cp source_repo/gradio_app.py deploy_dir/
           cp source_repo/main.py deploy_dir/
           cp source_repo/conversions.py deploy_dir/
           cp source_repo/requirements.txt deploy_dir/
