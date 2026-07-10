@@ -23,3 +23,4 @@ This app requires the following secrets to be configured in your Hugging Face Sp
 
 - `GOOGLE_API_KEY` — Your Google Gemini API key
 - `MODEL` — The model name (e.g., `gemini-2.5-flash`)
+.

@@ -212,7 +212,6 @@ if __name__ == "__main__":
     result = app.invoke({
         "file_path":       file_path,
         "resume_md":       "",
-        "resume_links":    "",
         "job_description": job_description,
         "ats_score":       0,
         "improved_resume": "",
