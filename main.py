@@ -134,8 +134,12 @@ def tex_to_pdf(state: AgentState) -> AgentState:
     os.makedirs("Documents", exist_ok=True)
     tex_path = os.path.abspath("Documents/Improved_Resume.tex")
     
-    latex_content = state.get("resume_latex", "")
+    latex_content = state.get("resume_latex", "").strip()
     
+    # Trim everything before \documentclass (explanations, backticks, spaces)
+    if r"\documentclass" in latex_content:
+        latex_content = latex_content[latex_content.find(r"\documentclass"):]
+        
     # Post-process: remove blank-page-causing commands
     latex_content = re.sub(r'\\newpage', '', latex_content)
     latex_content = re.sub(r'\\clearpage', '', latex_content)
