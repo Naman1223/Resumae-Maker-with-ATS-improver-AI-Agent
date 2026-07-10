@@ -68,10 +68,12 @@ def analyze_and_improve(state: AgentState) -> AgentState:
 Do ALL three tasks in one response:
 
 1. Score the resume against the job description (Keywords:/30, Achievements:/20, Headings:/15, Formatting:/15, Verbs:/10, Contact:/5, Grammar:/5).
-2. Rewrite the resume in Markdown to maximize ATS score. Don't fabricate anything. Use strong action verbs, quantified impact, and job description keywords. Use headings: CONTACT|SUMMARY|SKILLS|EXPERIENCE|PROJECTS|EDUCATION|CERTIFICATIONS.
+2. Rewrite the resume in Markdown to maximize ATS score. Do NOT fabricate, invent, or assume any information, dates, companies, project details, metrics, or certifications. You may only rephrase and optimize existing text. Use standard ATS-friendly headings (e.g., CONTACT, SUMMARY, SKILLS, EXPERIENCE, PROJECTS, EDUCATION, CERTIFICATIONS) but ONLY if the candidate has actual content for them. Do NOT add empty sections or invent details.
 3. Convert the improved resume to compilable LaTeX (article 11pt, geometry 0.5in, enumitem, titlesec, hyperref, fontenc, inputenc, xcolor — no exotic packages, must compile with pdflatex).
 
 CRITICAL RULES:
+- ANTI-HALLUCINATION: Do NOT invent or estimate any metrics, percentages, numbers, dates, companies, or credentials (degrees/certifications). If the original resume has no metrics (e.g., 'improved page speed'), do NOT invent one (e.g., 'improved page speed by 40%'). Only optimize the vocabulary (e.g., 'Optimized page load speed and backend efficiency').
+- DYNAMIC SECTIONS: Do NOT create sections (like PROJECTS or CERTIFICATIONS) if the candidate does not have any in their original resume.
 - Preserve ALL original URLs, links, email addresses, phone numbers, and profile links EXACTLY as they appear in the original resume. Do NOT modify, shorten, or fabricate any links.
 - In the LaTeX output, ALL URLs must be clickable using \href{URL}{display text}. Use \href{mailto:email}{email} for emails. Use \href{tel:phone}{phone} for phone numbers.
 - Configure hyperref with: \usepackage[hidelinks]{hyperref} so links are clickable but not boxed.
