@@ -13,6 +13,21 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git clone https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git repo
-          cd repo
+          git clone https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git source_repo
+          mkdir deploy_dir
+          
+          # Copy only necessary text/code files to deploy_dir
+          cp source_repo/app.py deploy_dir/
+          cp source_repo/main.py deploy_dir/
+          cp source_repo/conversions.py deploy_dir/
+          cp source_repo/requirements.txt deploy_dir/
+          cp source_repo/packages.txt deploy_dir/
+          cp source_repo/README.md deploy_dir/
+          
+          cd deploy_dir
+          git init -b main
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .
+          git commit -m "Deploy ATS Fixer App"
           git push --force https://Namantiwariix:$HF_TOKEN@huggingface.co/spaces/Namantiwariix/ATSFixer main:main
