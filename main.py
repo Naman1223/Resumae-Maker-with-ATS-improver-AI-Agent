@@ -74,6 +74,14 @@ Do ALL three tasks in one response:
 CRITICAL RULES:
 - ANTI-HALLUCINATION: Do NOT invent or estimate any metrics, percentages, numbers, dates, companies, or credentials (degrees/certifications). If the original resume has no metrics (e.g., 'improved page speed'), do NOT invent one (e.g., 'improved page speed by 40%'). Only optimize the vocabulary (e.g., 'Optimized page load speed and backend efficiency').
 - DYNAMIC SECTIONS: Do NOT create sections (like PROJECTS or CERTIFICATIONS) if the candidate does not have any in their original resume.
+- LATEX ALIGNMENT & LAYOUT RULES:
+  - Header: Centered candidate name at the top (large bold). Underneath, a single centered line for all contact details (email, phone, links) separated by ' \textbullet ' or ' | '.
+  - Section Headings: Bold, uppercase, left-aligned, followed by a horizontal line spanning the full width of the text block (e.g. using \section* or \hrule).
+  - Experience & Projects: For each job position or project, the job title and company/organization must be left-aligned, and the dates/locations must be right-aligned on the same line using \hfill. Example:
+    \noindent\textbf{Job Title / Project Name} \hfill \textbf{Date Range} \\
+    \noindent\textit{Company / Organization, Location} \hfill \textit{Location/Additional Info}
+  - Bullet Points: Use \begin{itemize}[leftmargin=*, noitemsep, topsep=2pt] from the enumitem package to align list items cleanly with zero horizontal indentation issues.
+  - Skills: Comma-separated list grouped by bold categories (e.g., \textbf{Languages:} Python, C++). Do not use vertical lists or bullets for skills.
 - Preserve ALL original URLs, links, email addresses, phone numbers, and profile links EXACTLY as they appear in the original resume. Do NOT modify, shorten, or fabricate any links.
 - In the LaTeX output, ALL URLs must be clickable using \href{URL}{display text}. Use \href{mailto:email}{email} for emails. Use \href{tel:phone}{phone} for phone numbers.
 - Configure hyperref with: \usepackage[hidelinks]{hyperref} so links are clickable but not boxed.
