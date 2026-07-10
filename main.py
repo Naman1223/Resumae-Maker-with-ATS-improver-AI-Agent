@@ -5,7 +5,7 @@ import pydantic as pd
 import subprocess
 from typing import TypedDict
 from dotenv import load_dotenv
-from langchain_nvidia_ai_endpoints import ChatNVIDIA
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.graph import StateGraph, START, END
 from conversions import Conversion
 
@@ -23,6 +23,7 @@ class SchemaFeedback(pd.BaseModel):
 class AgentState(TypedDict):
     file_path: str
     resume_md: str
+    resume_links: str
     job_description: str
     improved_resume: str
     resume_latex: str
@@ -31,173 +32,123 @@ class AgentState(TypedDict):
 
 def md(state: AgentState):
     file_path = state["file_path"]
-    state["resume_md"] = Conversion(file_path).to_md()
+    converter = Conversion(file_path)
+    state["resume_md"] = converter.to_md()
+    
+    # Extract embedded links from the PDF
+    links = converter.extract_links()
+    if links:
+        links_text = "\n".join(f'- "{l["text"]}" -> {l["url"]}' for l in links)
+    else:
+        links_text = "No embedded links found."
+    state["resume_links"] = links_text
+    print(f"Extracted {len(links)} embedded links from PDF")
     return state
 
 
 def analyze_and_improve(state: AgentState) -> AgentState:
-    """Score the resume and rewrite it in a single node — the resume is read from
-    state once and reused for both LLM calls without being stored twice."""
+    """Score, rewrite, and convert to LaTeX in a single LLM call."""
 
     resume_md       = state.get("resume_md", "")
+    resume_links    = state.get("resume_links", "")
     job_description = state.get("job_description", "")
 
-    # ── Shared LLM (scoring is deterministic; rewrite allows some creativity) ──
-    llm = ChatNVIDIA(
+    llm = ChatGoogleGenerativeAI(
         model=os.getenv("MODEL"),
-        api_key=os.getenv("NVIDIA_API_KEY"),
-        temperature=0,
-        max_completion_tokens=4000,
-        top_p=1,
+        google_api_key=os.getenv("GOOGLE_API_KEY"),
+        temperature=0.7,
+        max_output_tokens=16384,
     )
-    structured_llm = llm.with_structured_output(SchemaFeedback)
 
-    # ── Step 1: Score & audit ──
-    FEEDBACK_PROMPT = """
-        You are a senior ATS expert and professional resume coach.
+    print("Processing: Score + Rewrite + LaTeX (single call)...")
 
-        Evaluate the resume below and return a structured JSON response with exactly two top-level keys:
+    PROMPT = r"""You are a senior ATS expert, resume writer, and LaTeX typesetter.
 
-        1. "ats_score" — An integer from 0 to 100 representing ATS performance.
-           Score each category separately, then sum:
-            - Keywords match (job description alignment): 30 pts
-            - Measurable achievements: 20 pts
-            - Standard section headings: 15 pts
-            - ATS-safe formatting (no tables/columns/graphics): 15 pts
-            - Action verbs: 10 pts
-            - Contact info completeness: 5 pts
-            - Grammar/spelling: 5 pts
+Do ALL three tasks in one response:
 
-        2. "improvements" — A list of improvement objects. Each must have:
-            - "category": one of ["Keywords", "Formatting", "Impact", "Structure", "Skills", "Contact", "Grammar", "ATS Compatibility"]
-            - "priority": one of ["High", "Medium", "Low"]
-            - "issue": a short description of the specific problem found
-            - "suggestion": a concrete, actionable fix the candidate should apply
+1. Score the resume against the job description (Keywords:/30, Achievements:/20, Headings:/15, Formatting:/15, Verbs:/10, Contact:/5, Grammar:/5).
+2. Rewrite the resume in Markdown to maximize ATS score. Don't fabricate anything. Use strong action verbs, quantified impact, and job description keywords. Use headings: CONTACT|SUMMARY|SKILLS|EXPERIENCE|PROJECTS|EDUCATION|CERTIFICATIONS.
+3. Convert the improved resume to compilable LaTeX (article 11pt, geometry 0.5in, enumitem, titlesec, hyperref, fontenc, inputenc, xcolor — no exotic packages, must compile with pdflatex).
 
-        Return ONLY valid JSON. No markdown fences, no explanations outside the JSON.
+CRITICAL RULES:
+- Preserve ALL original URLs, links, email addresses, phone numbers, and profile links EXACTLY as they appear in the original resume. Do NOT modify, shorten, or fabricate any links.
+- In the LaTeX output, ALL URLs must be clickable using \href{URL}{display text}. Use \href{mailto:email}{email} for emails. Use \href{tel:phone}{phone} for phone numbers.
+- Configure hyperref with: \usepackage[hidelinks]{hyperref} so links are clickable but not boxed.
+- Do NOT use \newpage, \clearpage, or \pagebreak. The resume must fit naturally in 1 page (2 max) with NO blank pages.
+- Do NOT add extra \vspace or \vfill that could push content to a new page.
 
-        --- RESUME START ---
-        {resume_md}
-        --- RESUME END ---
+Output EXACTLY in this format:
 
-        --- JOB DESCRIPTION START ---
-        {job_description}
-        --- JOB DESCRIPTION END ---
-    """
+ATS_SCORE: <number>
+---IMPROVED_RESUME---
+<improved resume in Markdown>
+---LATEX---
+<full LaTeX from \documentclass to \end{document}>
 
-    audit: SchemaFeedback = structured_llm.invoke([(
-        "human",
-        FEEDBACK_PROMPT.format(resume_md=resume_md, job_description=job_description),
-    )])
+--- RESUME ---
+__RESUME_MD__
 
-    print(f"ATS Score: {audit.ats_score}")
-    os.makedirs("Documents", exist_ok=True)
-    with open("Documents/feedback.json", "w", encoding="utf-8") as f:
-        f.write(audit.model_dump_json(indent=2))
+--- EMBEDDED LINKS FROM ORIGINAL PDF ---
+Below is the exact mapping of display text to URL extracted from the original PDF. You MUST use these exact URLs in the improved resume and LaTeX output. Match each link to the correct place based on the display text.
+__RESUME_LINKS__
 
-    # ── Step 2: Rewrite resume (creative, higher temperature) ──
-    rewrite_llm = llm.bind(temperature=0.6)
+--- JOB DESCRIPTION ---
+__JOB_DESCRIPTION__"""
 
-    IMPROVE_PROMPT = """
-        You are a senior ATS optimization specialist and professional resume writer.
+    response = llm.invoke([("human", PROMPT.replace("__RESUME_MD__", resume_md).replace("__RESUME_LINKS__", resume_links).replace("__JOB_DESCRIPTION__", job_description))])
 
-        Rewrite the resume below by applying EVERY improvement listed, while strictly
-        following these rules:
+    text = response.content
+    ats_score = 0
+    improved_resume = ""
+    resume_latex = ""
 
-        ### Content Rules
-        - DO NOT fabricate experience, skills, certifications, or achievements.
-        - DO NOT remove any real information from the original resume.
-        - Rewrite bullets with strong action verbs and quantified impact where implied.
-        - Naturally weave in keywords from the job description wherever they truthfully apply.
-        - Fix all spelling and grammar errors identified in the improvements.
+    # Parse the three sections
+    if "ATS_SCORE:" in text and "---IMPROVED_RESUME---" in text and "---LATEX---" in text:
+        score_part, rest = text.split("---IMPROVED_RESUME---", 1)
+        md_part, latex_part = rest.split("---LATEX---", 1)
 
-        ### Structure Rules
-        - Use standard ATS-friendly section headings in this order:
-          CONTACT | SUMMARY | SKILLS | EXPERIENCE | PROJECTS | EDUCATION | CERTIFICATIONS
-        - Each section heading must be a Markdown ## heading.
-        - CONTACT: full name, email, phone, location, and profile links each on its own line.
-        - EXPERIENCE/PROJECTS: title, organization, date range, then 3–5 bullet points.
+        improved_resume = md_part.strip()
+        resume_latex = strip_markdown_fences(latex_part.strip())
 
-        ### Formatting Rules
-        - Single-column Markdown only — no tables, images, HTML, or columns.
-        - Use `-` for all bullet points.
-        - Maximum 2 pages worth of content.
-        - Output ONLY the improved resume in Markdown — no commentary, no fences.
+        try:
+            ats_score = int(re.search(r"ATS_SCORE:\s*(\d+)", score_part).group(1))
+        except (AttributeError, ValueError):
+            ats_score = 0
+    else:
+        # Fallback: treat entire response as improved resume
+        improved_resume = text
 
-        --- RESUME START ---
-        {resume_md}
-        --- RESUME END ---
+    print(f"ATS Score: {ats_score}")
 
-        --- IMPROVEMENTS START ---
-        {improvements}
-        --- IMPROVEMENTS END ---
-
-        --- JOB DESCRIPTION START ---
-        {job_description}
-        --- JOB DESCRIPTION END ---
-    """
-
-    md_response = rewrite_llm.invoke([(
-        "human",
-        IMPROVE_PROMPT.format(
-            resume_md=resume_md,
-            improvements=audit.model_dump_json(indent=2, include={"improvements"}),
-            job_description=job_description,
-        ),
-    )])
-    improved_resume = md_response.content
-
-    # ── Step 3: Convert to LaTeX ──
-    LATEX_PROMPT = r"""
-        You are an expert LaTeX typesetter specializing in professional resumes.
-
-        Convert the following improved resume into a clean, compilable LaTeX document.
-
-        ### LaTeX Requirements
-        - Use the `article` document class with 10pt or 11pt font.
-        - Set margins to 0.5in on all sides using the `geometry` package.
-        - Use ONLY these standard packages: geometry, enumitem, titlesec, hyperref, fontenc, inputenc, xcolor.
-        - DO NOT use any custom class files, exotic packages, or fonts that require special installation.
-        - The document MUST compile with `pdflatex` out of the box.
-
-        ### Layout Rules
-        - Single-column layout — no multicols, no minipages side by side.
-        - Name as a centered bold header at the top.
-        - Contact details separated by pipes (|) with hyperlinks where appropriate.
-        - Each section uses a bold uppercase heading with a horizontal rule underneath.
-        - Experience/Project entries: bold title, italic org/date, then itemize bullet points.
-        - Skills: comma-separated by category — NOT bullet points.
-        - Keep it to 1–2 pages.
-
-        ### Output Rules
-        - Output ONLY raw LaTeX starting with `\documentclass` and ending with `\end{{document}}`.
-        - No markdown fences, no explanations, no commentary.
-
-        --- RESUME START ---
-        {improved_resume}
-        --- RESUME END ---
-    """
-
-    latex_response = rewrite_llm.invoke([(
-        "human",
-        LATEX_PROMPT.format(improved_resume=improved_resume),
-    )])
-
-    # ── Save outputs ──
-    with open("Documents/Improved_Resume.md", "w", encoding="utf-8") as f:
-        f.write(improved_resume)
-    with open("Documents/Improved_Resume.tex", "w", encoding="utf-8") as f:
-        f.write(latex_response.content)
-
-    state["ats_score"]      = audit.ats_score
+    state["ats_score"]       = ats_score
     state["improved_resume"] = improved_resume
-    state["resume_latex"]    = latex_response.content
+    state["resume_latex"]    = resume_latex
     return state
 
 
 def tex_to_pdf(state: AgentState) -> AgentState:
     import shutil
+    import os
+    
+    os.makedirs("Documents", exist_ok=True)
     tex_path = os.path.abspath("Documents/Improved_Resume.tex")
+    
+    latex_content = state.get("resume_latex", "")
+    
+    # Post-process: remove blank-page-causing commands
+    latex_content = re.sub(r'\\newpage', '', latex_content)
+    latex_content = re.sub(r'\\clearpage', '', latex_content)
+    latex_content = re.sub(r'\\pagebreak', '', latex_content)
+    
+    # Ensure hyperref uses hidelinks (no ugly boxes around links)
+    latex_content = latex_content.replace(
+        r'\usepackage{hyperref}',
+        r'\usepackage[hidelinks]{hyperref}'
+    )
+    
+    with open(tex_path, "w", encoding="utf-8") as f:
+        f.write(latex_content)
+        
     out_dir  = os.path.abspath("Documents")
 
     pdflatex_bin = shutil.which("pdflatex")
@@ -253,23 +204,25 @@ graph.add_edge("tex_to_pdf", END)
 
 app = graph.compile()
 
-# ── Collect user inputs before running the pipeline ──
-file_path       = "Documents/Resume.pdf"
-job_description = input("Enter the job description: ").strip()
+if __name__ == "__main__":
+    # ── Collect user inputs before running the pipeline ──
+    file_path       = "Documents/Resume.pdf"
+    job_description = input("Enter the job description: ").strip()
 
-result = app.invoke({
-    "file_path":       file_path,
-    "resume_md":       "",
-    "job_description": job_description,
-    "ats_score":       0,
-    "improved_resume": "",
-    "resume_latex":    "",
-})
+    result = app.invoke({
+        "file_path":       file_path,
+        "resume_md":       "",
+        "resume_links":    "",
+        "job_description": job_description,
+        "ats_score":       0,
+        "improved_resume": "",
+        "resume_latex":    "",
+    })
 
-print(f"\n=== ATS SCORE: {result['ats_score']} / 100 ===")
-print("\n=== IMPROVED RESUME ===")
-print(result["improved_resume"])
-print("\n=== FILES SAVED ===")
-print("Feedback: Documents/feedback.json")
-print("Markdown: Documents/Improved_Resume.md")
-print("LaTeX:    Documents/Improved_Resume.tex")
+    print(f"\n=== ATS SCORE: {result['ats_score']} / 100 ===")
+    print("\n=== IMPROVED RESUME ===")
+    print(result["improved_resume"])
+    print("\n=== FILES SAVED ===")
+    print("LaTeX:    Documents/Improved_Resume.tex")
+    print("PDF:      Documents/Improved_Resume.pdf")
+
