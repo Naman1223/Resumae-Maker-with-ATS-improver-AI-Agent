@@ -18,3 +18,4 @@ huggingface_hub[hf_xet]
 onnxruntime
 markdown-pdf
 streamlit
+gradio
