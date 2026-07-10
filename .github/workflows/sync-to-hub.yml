@@ -19,4 +19,4 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git push --force https://Naman1223:$HF_TOKEN@huggingface.co/spaces/Naman1223/ATSFixer main
+          git push --force https://Namantiwariix:$HF_TOKEN@huggingface.co/spaces/Namantiwariix/ATSFixer main
