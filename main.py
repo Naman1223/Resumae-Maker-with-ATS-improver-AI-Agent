@@ -54,7 +54,7 @@ def analyze_and_improve(state: AgentState) -> AgentState:
     job_description = state.get("job_description", "")
 
     llm = ChatGoogleGenerativeAI(
-        model=os.getenv("MODEL"),
+        model=os.getenv("MODEL") or "gemini-2.5-flash",
         google_api_key=os.getenv("GOOGLE_API_KEY"),
         temperature=0.7,
         max_output_tokens=16384,
