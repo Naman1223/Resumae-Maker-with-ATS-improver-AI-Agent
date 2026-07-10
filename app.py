@@ -31,6 +31,7 @@ if st.button("Fix My Resume", type="primary"):
                     "ats_score": 0,
                     "improved_resume": "",
                     "resume_latex": "",
+                    "latex_log": "",
                 })
                 status.update(label="✅ Done!", state="complete")
 
@@ -58,7 +59,9 @@ if st.button("Fix My Resume", type="primary"):
                             mime="application/pdf",
                         )
                 else:
-                    st.warning("Could not generate PDF. Check the LaTeX compilation logs.")
+                    st.warning("Could not generate PDF. Check the LaTeX compilation logs below:")
+                    if result.get("latex_log"):
+                        st.code(result.get("latex_log"), language="text")
 
             except Exception as e:
                 status.update(label="❌ Error", state="error")

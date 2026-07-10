@@ -28,6 +28,7 @@ class AgentState(TypedDict):
     improved_resume: str
     resume_latex: str
     ats_score: int
+    latex_log: str
 
 
 def md(state: AgentState):
@@ -169,6 +170,7 @@ def tex_to_pdf(state: AgentState) -> AgentState:
     if not pdflatex_bin:
         pdflatex_bin = "pdflatex"
 
+    state["latex_log"] = ""
     try:
         result = subprocess.run(
             [pdflatex_bin, "-interaction=nonstopmode", "-output-directory", out_dir, tex_path],
@@ -178,15 +180,18 @@ def tex_to_pdf(state: AgentState) -> AgentState:
         )
         if result.returncode == 0:
             print("PDF generated: Documents/Improved_Resume.pdf")
+            state["latex_log"] = "Success"
         else:
-            print("pdflatex warnings/errors (may still have produced a PDF):")
             log_lines = result.stdout.strip().splitlines()
-            for line in log_lines[-20:]:
-                print(f"  {line}")
+            last_lines = "\n".join(log_lines[-30:])
+            state["latex_log"] = f"pdflatex exited with code {result.returncode}.\nLast 30 lines of log:\n{last_lines}"
+            print(state["latex_log"])
     except FileNotFoundError:
-        print("ERROR: pdflatex not found. Install MiKTeX: https://miktex.org/download")
+        state["latex_log"] = f"ERROR: pdflatex command not found at '{pdflatex_bin}'. Make sure LaTeX (TeX Live/MiKTeX) is installed on the system."
+        print(state["latex_log"])
     except subprocess.TimeoutExpired:
-        print("ERROR: pdflatex timed out after 60 seconds.")
+        state["latex_log"] = "ERROR: pdflatex compilation timed out after 60 seconds."
+        print(state["latex_log"])
 
     return state
 

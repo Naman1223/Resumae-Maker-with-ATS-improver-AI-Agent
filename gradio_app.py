@@ -18,6 +18,7 @@ def process_resume(uploaded_file, job_description):
             "ats_score": 0,
             "improved_resume": "",
             "resume_latex": "",
+            "latex_log": "",
         })
         
         score_text = f"Processing Complete! Your ATS Score is: {result['ats_score']}/100"
@@ -28,7 +29,8 @@ def process_resume(uploaded_file, job_description):
         if os.path.exists(pdf_path):
             return score_text, original_md, improved_md, pdf_path
         else:
-            return score_text + " (Warning: PDF generation failed. Check LaTeX logs.)", original_md, improved_md, None
+            err_msg = f"{score_text}\n\n⚠️ PDF generation failed! LaTeX log:\n{result.get('latex_log', '')}"
+            return err_msg, original_md, improved_md, None
             
     except Exception as e:
         return f"An error occurred: {e}", "", "", None
